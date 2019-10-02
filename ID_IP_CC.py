@@ -22,7 +22,7 @@ msg = input("Message to send: ")
 # loop to encode message - multiply each char by 256
 for letter in msg:
 	encoded_letter = ord(letter) * 256
-	out_ip = IP(dst=lh)/TCP(sport=encoded_letter)
+	out_ip = IP(dst=k_ip)/TCP(sport=encoded_letter, dport=8888)
 	#out_ip.id = encoded_letter
 	# send packet! 
 	send(out_ip)
