@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
-from scapy.all import IP
+from scapy.all import *
+from scapy.layers.inet import IP,TCP
 
 eom = "!" 
 enc_let = ""
@@ -11,8 +12,6 @@ def sniff_packet(intface):
 
 def process_packet(packet):
 	global msg
-	if packet.src == '127.0.0.1':
-		return
 	enc_let = int(packet.id)
 	dec_let = chr(enc_let // 256)
 	if not msg:	
